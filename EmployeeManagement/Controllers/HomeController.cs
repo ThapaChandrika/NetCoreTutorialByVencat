@@ -7,9 +7,8 @@ using EmployeeManagement.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 
 namespace EmployeeManagement.Controllers
-{
+{   
    
-    [Route("Home")]
     public class HomeController : Controller
     {
         private IEmployeeRepository _employeeRepository;
@@ -18,17 +17,13 @@ namespace EmployeeManagement.Controllers
         {
             _employeeRepository = employeeRepository;
         }
-
-        [Route("/")]
-        [Route("")]
-        [Route("Index")]
+       
         public ViewResult Index()
         {
             var model = _employeeRepository.GetAllEmployees();
             return View(model);
         }
-
-        [Route("Details/{id?}")]
+              
         public ViewResult Details(int? id)
         {
             //Employee model = _employeeRepository.GetEmployee(1);
@@ -45,6 +40,11 @@ namespace EmployeeManagement.Controllers
             };
 
             return View(homeDetailsViewModel);
+        }
+      
+        public ViewResult Create()
+        {
+            return View();
         }
     }
 }

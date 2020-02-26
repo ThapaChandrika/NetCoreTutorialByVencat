@@ -21,7 +21,7 @@ namespace EmployeeManagement
         {
             _config = config;
         }
-        
+
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
@@ -37,11 +37,8 @@ namespace EmployeeManagement
             }
 
             app.UseStaticFiles();
-            //app.UseMvcWithDefaultRoute();
-            app.UseMvc();
+            app.UseMvcWithDefaultRoute();
 
-
-           
         }
     }
 }
